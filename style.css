@@ -1,9 +1,11 @@
-.page {
+  .page {
     font-family: 'Cormorant Garamond' /*Тип шрифтa для всего сайта (верстки) */
+
   }
   
   .centered-block {
     margin: auto;
+    
   }
 
   .page__menu {
