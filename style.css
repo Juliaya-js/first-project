@@ -1,3 +1,222 @@
-div {
-    height: 200px;
-}
+.page {
+    font-family: 'Cormorant Garamond' /*Тип шрифтa для всего сайта (верстки) */
+  }
+  
+  .centered-block {
+    margin: auto;
+  }
+
+  .page__menu {
+    margin: 40px auto;
+  }
+
+  .list { /* Выделили из flex-row чтобы сделать блок в БЭМ */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .header { /*Св-ва для контейнера с заголовком ЯндексПрактикум */
+    height: 95px;
+    display: flex;
+    max-width: 1330px;
+    min-width: 1280px;
+  }
+  
+  .header__link {   /*Надпись ЯндексПрактикум */
+    font-size: 28px;
+    text-decoration: none;
+    color: #10191E;
+  }
+
+  .header__link::after {
+    content: '!';
+  }
+
+  .header__link[lang="ru"]::before {
+    content: "Привет, меня зовут ";
+  }
+  
+  .header__link[lang="en"]::before {
+    content: "Hello, my name is ";
+  }
+  
+  .header__link[lang="fr"]::before {
+   content: "Bonjour, je suis ";
+  }
+  
+  .menu { /*Свойства контейнера меню*/
+    display: flex;
+    justify-content: center; /*Задаем всем элемеентам контейнера свойсвто центрирования (регулирования) по центру */
+    min-height: 75px;
+    align-items: center; /*Задаем всем элемента контейнера свойсвто центрирования по вертикали (посокльку у нас задан flex-direction: row */
+    flex-wrap: wrap; /*НПереносим вниз если не помещаются на строке */
+    max-width: 1330px;
+    min-width: 1280px;
+  }
+
+  .menu__link { /*Надпись трех меню */
+    font-size: 18px;
+    text-decoration: none;
+    color: #10191E;
+    margin-right: 20px; /*Внешние отступы чтобы слова не сливались */
+  }
+
+  .menu__link_active { /*Описание булиевого модификатора - делаем ссылку подчеркнутой*/
+    text-decoration: underline;
+  }
+
+  .menu__link:last-of-type {
+    margin-right: 0;
+  }
+  
+  .content { /*Максимальные и минимальные ширина и высота нашего всего сайта */
+    max-width: 1330px;
+    min-width: 1280px;
+  }
+   
+  .content__title {
+    font-size: 34px;
+    margin: 0 0 40px;
+    text-align: center;
+  }
+    
+  .flex-row { /*Задаем правила flex для контейнера первых двух картинок сайта (верстки) и для общего контейнера второго 
+    (общего для остальных картинок) + для двух картинок в контенере с колонкой (column) + 
+    для трех картинок (трех будущих проектов)*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .flex-row_space_bottom {
+    margin-bottom: 60px;
+  }
+
+  .flex-row_reversed { /*Задаем правило для общего контейнера второго (общего для остальных картинок) */
+    flex-direction: row-reverse;
+  }
+  
+  .flex-column { /*Задаем правило для контейнера - колонки column */
+    display:flex;
+    justify-content: space-between;
+  } 
+  
+  .flex-column_reversed { /*Задаем правило для контейнера - колонки column */
+    flex-direction: column-reverse;
+  }
+
+  .project { /*Св-ва для всех картинок сразу  */
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .project_name_music-album { /*Ссылка на картинку с муз. альбомом */
+    background-image: url(https://code.s3.yandex.net/web-code/album.png);
+  }
+  
+  .project_name_design-principles { /* Ссылка на картинку с 4мя правилами верстки */
+   background-image: url(https://code.s3.yandex.net/web-code/design.png);
+  }
+  
+  .project_name_slider { /*Размеры контейнера желтый фон с ноутом + ссылка на картинку  */
+    background-image: url(https://code.s3.yandex.net/web-code/slider.gif);
+  }
+  
+  .project_name_reactive { /*Размеры контейнера на черном фоне какая-то фигня + ссылка на картинку*/
+    background-image: url(https://code.s3.yandex.net/web-code/reactive.gif);
+  }
+  
+  .project_name_how-to-study { /*Третияя картинка ( будущий проект) про учебу*/
+    background-image: url(https://code.s3.yandex.net/web-code/how-to-study.png);
+    order: 3;
+  }
+  
+  .project_name_across-russia { /*Вторая картинка ( будущий проект) про Россию*/
+    background-image: url(https://code.s3.yandex.net/web-code/across-russia.png);
+    order: 2;
+  }
+  
+  .project_name_mesto { /*Первая картинка ( будущий проект) про место*/
+    background-image: url(https://code.s3.yandex.net/web-code/mesto.png);
+    order: 1;
+  }
+
+  .project_width_l {
+    width: 636px;
+  }
+
+  .project_width_m {
+    width: 306px;
+  }
+
+  .project_height_xl {
+    height: 557px;
+  }
+  
+  .project_height_l {
+    height: 430px;
+  }
+  
+  .project_height_m {
+    height: 290px;
+  }
+  
+  .project_height_s {
+    height: 240px;
+  }
+
+  .project__overlay {
+    background-color: rgba(0, 0, 100, .8);
+    height: 100%;
+    width: 100%; /* растянули ссылку во весь блок */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* выровняли текст по центру средствами flex */
+    text-decoration: none; /* убрали подчеркивание  */
+    color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    box-sizing: border-box; /* задали внутренний фокус элемента, чтобы контейнер не расширялся */
+    padding: 20px; /* отступ, чтобы текст не касался краёв */
+    opacity: 0;
+  }
+  
+  .project__overlay:hover {
+      opacity: 1;
+  }
+
+  .project__video {  /*Подклбчаем видео с сердечками */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .footer { /*Св-ва для футера*/
+    display: flex;
+    height: 95px;
+    justify-content: center;
+    max-width: 1330px;
+    min-width: 1280px;
+  }
+  
+  .footer__logo { /*Св-ва для логотипа внизу в футере ЯндексПрактикум*/
+    width: 145px;
+    height: 25px;
+    background-image: url(https://pictures.s3.yandex.net/logo_black.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-self: center;
+  }
+
+  
+ 
+  
+  
+  
+  
+  
+
+  

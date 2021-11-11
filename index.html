@@ -1,14 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+  <!DOCTYPE html>
+
+  html lang="ru"> <!--Указали на каком языке наш сайт-->
+
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-  <div></div>
-  <div></div>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Задаем метатег name. Говорит нам
+    как пользователь будет видеть страницу в браузере. Content - указывает на два правила: чтобы страница занимала
+    всю ширину экрана и отображалась на любом устройстве в масштабе 1:1.-->
+    <meta name="description" content="портфолио Юлии Саркисян на Яндекс.Практикуме"> <!--Описание-->
+    <meta name="keywords" content="html, css, javascript"> <!--Ключевые слова-->
+    <meta name="author" content="Юлия Саркисян">   <!--Автор-->
+    <link rel="stylesheet" href="https://code.s3.yandex.net/web-code/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Портфолио</title>
+  </head>
+
+  <body class="page">  <!--Делаем блок БЭМ -->
+  
+    <header class="header centered-block"> <!--Задаем контейнер для заголовка ЯндексПрактикум + примешаем блок 
+      centered-block отвечающий за margin:auto-->
+      <h1 class="centered-block"> <!--Поместили ссылку (строчный элемент) в блок (блочный элемент h1)-->
+      <a href="#" lang="en" class="header__link">Julia Sarkisyan</a> <!--Сам заголовок ЯндексПрактикум (Мое имя на англе)
+      + указали язык ссылки - англ + Задаем ЭЛЕМЕНТ блока БЭМ + примешаем блок centered-block отвечающий за margin:auto-->
+      </h1>
+    </header>
+    <nav class="menu centered-block page__menu"> <!--Задаем контейнер трех меню + примешаем блок centered-block отвечающий
+        за margin:auto-->
+      <a href=#beginner class="menu__link menu__link_active">Первые шаги в HTML и CSS</a> <!--Задаем ЭЛЕМЕНТ блока БЭМ 
+        и булевый модификатор -->
+      <a href=#frameworks class="menu__link">Библиотеки JavaScript</a>
+      <a href=#practice class="menu__link">Практика HTML, CSS и JavaScript</a>
+    </nav>
     
-</body>
-</html>
+    <main class="content centered-block"> <!--Задаем общий контейнер для всего нашего сайта (верстки) + Делаем блок 
+      БЭМ + примешаем блок centered-block отвечающий за margin:auto-->
+    
+      <section id="beginner">
+        <h2 class="content__title">Первые шаги в HTML и CSS</h2>
+        <ul class="flex-row list flex-row_space_bottom"> <!--Задаем общий контейнер для первых двух картинок сайта - муз.альбом и 4 правила верстки
+        + делаем контейнером списка ul + Делаем блок БЭМ -->
+          <li class="project project_name_music-album project_width_l project_height_l">
+            <a href="#" class="project__overlay">обложка музыкального альбома</a>
+          </li> <!--Первый-->
+          <li class="project project_name_design-principles project_width_l project_height_l">
+            <a href="#" class="project__overlay">посадочная страница</a>
+          </li> <!--Второй-->
+        </ul>
+      </section>
+
+      <section id="frameworks">
+        <h2 class="content__title">Библиотеки JavaScript</h2>
+        <div class="flex-row list flex-row_reversed flex-row_space_bottom"> <!--Задаем общий контейнер 
+          (второй большой контейнер) для остальной части сайта (верстки) + применим св-во row-reversed в нем и все поменяется местами-->
+          <div class="flex-column flex-column_reversed">  <!--Задаем общий контейнер-column для левой части сайта + 
+              у нас есть свойство column-reversed для этой части, поэтому в итоге наша картинка (контейнер) поменяет 
+              картинки местами в этом контейнере-->
+              <div class="project project_width_l project_height_s"> <!--Задаем контейнер для картинки (проекта) с 
+              сердечками-->
+              <video class="project__video" src="https://code.s3.yandex.net/web-code/like.mp4" autoplay muted loop></video> <!--
+              Вставляем видео с сердечком + Задаем ЭЛЕМЕНТ блока БЭМ-->
+              </div>
+
+              <ul class="flex-row list"> <!--Задаем контейнер для двух других проектов в этой же 
+              колонке (column) + делаем контейнером списка ul + Делаем блок БЭМ -->-->
+                <li class="project project_name_slider project_width_m project_height_m">
+                  <a href="#" class="project__overlay">слайдер</a>
+                </li>
+                <li class="project project_name_reactive project_width_m project_height_m">
+                  <a href="#" class="project__overlay">React, Vue, Angular</a>
+                </li>
+              </ul>
+          </div>
+      
+          <div class="project project_width_l project_height_xl"> <!--Задаем контейнер правой части сайта 
+            (правая колонка) - проект о прокрастинации-->
+            <video class="project__video" src="https://code.s3.yandex.net/web-code/procrastinate.mov" autoplay muted loop> <!--Задаем
+            видео для него  + Задаем ЭЛЕМЕНТ блока БЭМ-->
+            </video>
+          </div>
+        </div>
+      </section>
+    
+      <section id="practice">
+        <h2 class="content__title">Практика HTML, CSS и JavaScript</h2>
+        <ul class="flex-row list">  <!--Задаем три картинки (три будущих проекта) + делаем контейнером списка ul 
+          + Делаем блок БЭМ-->
+          <li class="project project_name_how-to-study project_width_m project_height_m">
+            <a href="#" class="project__overlay">CSS-анимации</a>
+          </li>
+          <li class="project project_name_across-russia project_width_l project_height_m">
+            <a href="#" class="project__overlay">адаптивная вёрстка</a>
+          </li>
+          <li class="project project_name_mesto project_width_m project_height_m">
+            <a href="#" class="project__overlay">приложение на JavaScript</a>
+          </li>
+        </ul>
+      <section>
+
+    </main>
+      
+    <footer class="footer centered-block">  <!--Сделали футер + примешаем блок centered-block отвечающий за 
+      margin:auto-->
+      <div class="footer__logo"></div><!--К нему логотип + Задаем ЭЛЕМЕНТ блока БЭМ--></div>
+    </footer> 
+    
+  </body>
+
+  </html>
